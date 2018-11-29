@@ -20,7 +20,7 @@ var questions = [{
         "none of the above"],
     correctAnswer : 1
 }];
-
+var C="please select an answers";
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
@@ -28,10 +28,50 @@ displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
     /*Write your code here */
+    var Q=document.getElementById("question");
+    var cl=document.getElementById("choice-list");
+    var qm=document.getElementById("quiz-message");
+    var res=document.getElementById("result");
+
+    var a=document.querySelector("input[name='dq']:checked");
+    if(!document.querySelector("input[name='dq']:checked"))
+    {
+        qm.display='red';
+    }
+    else if(a.value==questions[currentQuestion].correctAnswer)
+    {
+        correctAnswers++;
+    }
+    cl.innerText=' ';
+    currentQuestion++;
+    displayCurrentQuestion();
+    if(currentQuestion>=questions.length)
+    {
+        displayScore();
+    }
 }
 
 function displayCurrentQuestion() {
     /*Write your code here */
+    var Q=document.getElementById("question");
+    var cl=document.getElementById("choice-list");
+    var qm=document.getElementById("quiz-message");
+    var res=document.getElementById("result");
+    Q.innerHTML= questions[currentQuestion].question;
+  //  <form action=" ">
+    for(var j=0;j<questions[currentQuestion].choices.length;j++)
+    {
+        cl.innerHTML += '<li>' + '<input type="radio" name="check">' + questions[currentQuestion].choices[j] + '</li>';
+    }
+    if(!document.querySelector("input[name='check']:checked"))
+    {
+      qm.display='red';
+    }
+    //</form>
+        /* for(var j=0;j<cl.length;j++)
+        {
+            cl.innerHTML=
+        }*/
 }
 
 function resetQuiz() {
