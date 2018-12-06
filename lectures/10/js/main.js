@@ -1,6 +1,8 @@
-/*function  showAlertBox() {
+/*
+function  showAlertBox() {
     alert("Display Message")
-}*/
+}
+*/
 
 
 /*
@@ -39,7 +41,7 @@ function expo() {
 */
 //global Var
 var category = "electronics";
-//dt();
+/*dt();*/
 function dt() {
     //local variable
     var length = 16;                               // Number
@@ -71,7 +73,7 @@ function dt() {
     console.log(typeof function myFunc(){});        // Returns "function"
 }
 
-//dayOfTheWeek();
+dayOfTheWeek();
 function dayOfTheWeek() {
     var day;
     switch (new Date().getDay()) {
